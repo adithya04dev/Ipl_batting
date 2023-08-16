@@ -6,7 +6,7 @@ Created on Mon Aug 14 22:43:12 2023
 """
 
 import streamlit as st
-import datetime
+
 import pickle
 #import sys
 #sys.path.append('C:/Users/adith/Documents/ipl_app/streamlit_app')

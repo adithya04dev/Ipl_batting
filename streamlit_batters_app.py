@@ -14,23 +14,23 @@ import pickle
 #import sys
 #sys.path.append('C:/Users/adith/Documents/ipl_app/streamlit_app')
 
-
-import sys 
-sys.path.append('C:/Users/adith/Documents/ipl_app/team_app/batting')
 from batsman import Batsman
-with open('C:/Users/adith/Documents/ipl_app/team_app/batting/batting1.pkl', 'rb') as f:
+
+with open('batting.pkl', 'rb') as f:
     bat = pickle.load(f)
     #result1=bat.calculate("RA Tripathi",[1,2,3],["Pace"],[2022])
     #print(result1['strike_rate'])
 
 def main():
     # Title of the app
-    st.title("IPL: Team Batting Stats")
+    st.title("IPL: Batter Stats")
     # Input for PlayerName
-    team_names = bat.teams
-    
+    player_names = bat.players
+    index1=np.where(player_names == "H Klaasen")[0][0]
+    player_names[0]="H Klaasen"
+    player_names[index1]="DA Warner"
     # Input for PlayerName (dropdown)
-    team_name = st.selectbox("Select Team Name", team_names)
+    player_name = st.selectbox("Select Player Name", player_names)
     phases = st.multiselect("Select Phases ", ["Powerplay", "Middle1","Middle2","Slog"])
     # Input for Bowling type (dropdown)
     bowling_type = st.multiselect("Select Bowling Type(s)", ["Pace", "Spin"])
@@ -50,20 +50,16 @@ def main():
     if st.button('Submit'):
         
         
-        #st.write("Selected Player Name:", team_name)
+        #st.write("Selected Player Name:", player_name)
         #st.write("Selected Bowling Type:", type(bowling_type[0]))  # Corrected indentation
         #st.write("Selected Phases:", len(phases))          
         #st.write("Selected Seasons:", selected_years[0], "to", selected_years[1])
-        result1=bat.calculate(team_name,overs,bowling_type,Season)
+        result1=bat.calculate(player_name,overs,bowling_type,Season)
         result2=bat.overall()
-        result3=bat.combined()
-        st.write("Overall (All phases and bowling types ):")
+        st.write("Overall (All phases and bowlingt types ):")
         st.dataframe(result2)
-        #order=['phase','BowlingType','team_name', 'total_runs', 'outs', 'balls_played', 'average_runs', 'strike_rate','BowlingType','phase','bpercent','dpercent']
-          
-        st.write("Combined (Given phases and bowling types ):")
-        st.dataframe(result3)
-        
+        order=['phase','BowlingType','player_name', 'total_runs', 'outs', 'balls_played', 'average_runs', 'strike_rate','BowlingType','phase','bpercent','dpercent']
+            
         
         st.write("Phase wise breakdown:")
         result1=result1.iloc[:,[7,6,0,1,2,3,4,5,8]]

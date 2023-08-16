@@ -72,7 +72,9 @@ class Batsman():
                    d1["BowlingType"]=bo
                    d1["phase"]=ph1[ph]
                    self.phasewise_df = pd.concat([self.phasewise_df ,pd.DataFrame(d1, index=[0])], ignore_index=True)
-                  
+            
+            order=['phase','BowlingType','player_name', 'total_runs', 'outs', 'balls_played', 'average_runs', 'strike_rate','BowlingType','phase','bpercent','dpercent']
+            self.phasewise_df=self.phasewise_df[order]
         return self.phasewise_df
     def overall(self):
         return self.ovdf    

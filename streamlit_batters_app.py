@@ -60,7 +60,7 @@ def main():
             
         
         st.write("Phase wise breakdown:")
-        result1=result1.iloc[:,[0,1,2,3,4,5,6,7,8]]
+        result1=result1.iloc[:,[7,6,0,1,2,3,4,5,8]]
         st.dataframe(result1)
         
     

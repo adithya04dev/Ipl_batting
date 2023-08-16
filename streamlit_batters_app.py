@@ -7,6 +7,9 @@ Created on Mon Aug 14 22:43:12 2023
 
 import streamlit as st
 
+import numpy as np
+import pandas as pd
+
 import pickle
 #import sys
 #sys.path.append('C:/Users/adith/Documents/ipl_app/streamlit_app')
@@ -23,6 +26,9 @@ def main():
     st.title("IPL: Batter Stats")
     # Input for PlayerName
     player_names = bat.players
+    index1=np.where(player_names == "H Klaasen")[0][0]
+    player_names[0]="H Klaasen"
+    player_names[index1]="DA Warner"
     # Input for PlayerName (dropdown)
     player_name = st.selectbox("Select Player Name", player_names)
     phases = st.multiselect("Select Phases ", ["Powerplay", "Middle1","Middle2","Slog"])

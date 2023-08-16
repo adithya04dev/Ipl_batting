@@ -27,7 +27,6 @@ def main():
     index1=np.where(player_names == "H Klaasen")[0][0]
     player_names[0]="H Klaasen"
     player_names[index1]="DA Warner"
-    np.where(a == 3)[0]
     # Input for PlayerName (dropdown)
     player_name = st.selectbox("Select Player Name", player_names)
     phases = st.multiselect("Select Phases ", ["Powerplay", "Middle1","Middle2","Slog"])

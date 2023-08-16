@@ -60,6 +60,7 @@ def main():
             
         
         st.write("Phase wise breakdown:")
+        result1=result1[order]
         st.dataframe(result1[order])
         
     

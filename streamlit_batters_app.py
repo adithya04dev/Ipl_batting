@@ -56,10 +56,11 @@ def main():
         result2=bat.overall()
         st.write("Overall (All phases and bowlingt types ):")
         st.dataframe(result2)
-        
+        order=['phase','BowlingType','player_name', 'total_runs', 'outs', 'balls_played', 'average_runs', 'strike_rate','BowlingType','phase','bpercent','dpercent']
+            
         
         st.write("Phase wise breakdown:")
-        st.dataframe(result1)
+        st.dataframe(result1[order])
         
     
     

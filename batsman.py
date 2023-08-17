@@ -62,7 +62,7 @@ class Batsman():
         for ph in phase:
 
             overs1+=self.dic[ph]
-            self.comb_df=self.create_df(name,overs1,bow,Season)
+            self.comb_df=self.create_df(name,overs1,bow1,Season)
         
         for ph in phase:
 

@@ -58,6 +58,11 @@ class Batsman():
         bow1=[]
         for bo in bow:
                 bow1=bow1+self.bowty[bo]
+        overs1=[]
+        for ph in phase:
+
+            overs1+=self.dic[ph]
+            self.comb_df=self.create_df(name,overs1,bow,Season)
         
         for ph in phase:
 
@@ -78,6 +83,8 @@ class Batsman():
         return self.phasewise_df
     def overall(self):
         return self.ovdf    
+    def combined(self):
+                return self.comb_df    
 bat=Batsman(df)
 #result=bat.calculate('H Klaasen',[1,2,3],["Spin"],[2023]) 
 #result1=bat.overall()

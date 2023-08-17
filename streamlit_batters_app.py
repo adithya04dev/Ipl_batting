@@ -56,10 +56,11 @@ def main():
         #st.write("Selected Seasons:", selected_years[0], "to", selected_years[1])
         result1=bat.calculate(player_name,overs,bowling_type,Season)
         result2=bat.overall()
+        result3=bat.combined()
         st.write("Overall (All phases and bowlingt types ):")
         st.dataframe(result2)
-        order=['phase','BowlingType','player_name', 'total_runs', 'outs', 'balls_played', 'average_runs', 'strike_rate','BowlingType','phase','bpercent','dpercent']
-            
+        st.write("Combined (Input phases and bowling types ):")
+        st.dataframe(result3)            
         
         st.write("Phase wise breakdown:")
         result1=result1.iloc[:,[7,6,0,1,2,3,4,5,8]]

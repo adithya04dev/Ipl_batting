@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import pickle
-df=pd.read_csv("processed_ballbyball.csv")
+df=pd.read_csv("C:/Users/adith/Documents/ipl_app/streamlit_app/batting/processed_ballbyball.csv")
 
 
 class Batsman():
@@ -90,5 +90,5 @@ bat=Batsman(df)
 #result1=bat.overall()
 #print(result1['strike_rate'])
 
-with open('batting.pkl', 'wb') as f:
+with open('C:/Users/adith/Documents/ipl_app/streamlit_app/batting/batting.pkl', 'wb') as f:
     pickle.dump(bat, f)
